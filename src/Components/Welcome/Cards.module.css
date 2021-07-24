@@ -1,0 +1,9 @@
+.ant-card {
+    transition: 1s;
+}
+.ant-card{
+    transform: scale(1.02);
+}
+.container-fluid{
+    background-color:#fffdd0 ;
+}

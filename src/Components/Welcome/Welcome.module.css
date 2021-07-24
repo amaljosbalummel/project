@@ -1,0 +1,24 @@
+.fill {
+    height:6cm;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+.fill img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}
+.cards{
+    margin-top: 1%;
+}
+.text{
+    width: 100%;
+    position: relative;
+}
+.text h1{
+    text-align: center;
+    color: cadetblue;
+    z-index: 20%;
+}
