@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from'react';
 import classes from'./PostsList.module.css';
 const PostList =(props)=> {

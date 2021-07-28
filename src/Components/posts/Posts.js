@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 import { Button } from 'antd';
 import React ,{useEffect,useState}from'react';
 import classes from'./Posts.module.css';
@@ -7,60 +7,53 @@ import {BackTop} from'antd';
 
 const Posts =()=>{
     const[post,setPost]=useState([]);
-    //state to show error case
     const[error,setError]=useState('');
     //state  to show loading text
     const[isLoading,setIsLoading]=useState(false);
     const[isError,setIsError]=useState(false);
-
-    //state to change a boolean value on button click ,as to trigger the fetching function
- const[isValid,setIsValid]=useState(false);
+     const[isValid,setIsValid]=useState(false);
  
- //to fetch the  data conditionally only on isValid is true, without re rendering the component 
-    useEffect(()=>{
-    // in the initial case this code runs so to prevent the fetching other than on button click
-        if(isValid){
-           async function fetchData(){
-            try{
-                setIsLoading(true);
-              const response =await fetch("https://jsonplaceholder.typicode.com/posts");
-                if(!response.ok){
-                        setIsError(true);
-                        setIsValid(false);
-                        throw new Error('something went wrong');
-                    }
-                const data =await response.json();
-                //converting the results into desired object inorder to print
-                const transformedPost=data.map((result)=>{
-            return {
+      async function fetchData(){
+        try{
+           setIsLoading(true);
+           const response =await fetch("https://jsonplaceholder.typicode.com/posts");
+           if(!response.ok){
+               setIsError(true);
+               setIsValid(false);
+               throw new Error('something went wrong');
+            }
+            const data =await response.json();
+            //converting the results into desired object inorder to print
+            const transformedPost=data.map((result)=>{
+              return {
                 id:result.id,
                 title:result.title,
                 openingText:result.body
-            }
-                     });
+              }
+            });
 
-                     setIsLoading(false);
-                     setPost(transformedPost);
+            setIsLoading(false);
+            setPost(transformedPost);
                      
             } catch (error){
                 setError(error.message); 
                 setIsError(true);
                 setIsValid(false);
                 setIsLoading(false);
-         }
+              }
            } 
-         
-          fetchData();
+ //to fetch the  data conditionally only on isValid is true, without re rendering the component 
+    useEffect(()=>{
+         if(isValid){
+             fetchData();
+         }
+    },[isValid]);
 
-            }
-        },[isValid]);
-//function that triggered by the button click and which changes the isValid value so the dependenc change and useEffect  runs
 const fetchPostHandler= (event)=> {
     event.preventDefault();
     setIsValid(true);
 }
   
-//function triggered when hide posts is called , which changes the value of isValid
 const hidePostHandler=(event)=> {
     event.preventDefault();
     setIsValid(false);

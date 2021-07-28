@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from "react";
 import classes from "./Welcome.module.css";
 import Cards from'./Cards';
