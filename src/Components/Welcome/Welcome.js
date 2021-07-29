@@ -1,23 +1,30 @@
 /* eslint-disable */
 import React from "react";
 import classes from "./Welcome.module.css";
-import Cards from'./Cards';
-import image from "../assets/_Social_media_strategy_jpg_nLvbqTk4.jpg";
+import {Card} from 'antd';
+
+
 const Welcome = () => {
   return (
-    <main>
-      <div className={classes.fill}>
-        <img src={image} alt="phone"></img>
-        <div className={classes.text}>
-          <h1>CREATE POSTS</h1>
-        </div>
+  <div className={classes.main}>
+    <div className={classes.container}>
+       <h1>Create Posts</h1>
+       <p>A wonderful way to improve your gibberish is to find fake words and pronounce them so they easily roll off your tongue. All those nonsense words coming out of your mouth are now your own gibberish language.</p>
+    </div>
+    <div className={classes.article}>
+      <div className={classes.card}>
+
+      <Card title="Create" hoverable="true" >A wonderful way to improve your gibberish is to find fake words</Card>
       </div>
-      <div>
-        <div className={classes.cards}>
-          <Cards/>
-        </div>
+      <div className={classes.card}>
+      <Card title="Post" hoverable="true" >A wonderful way to improve your gibberish is to find fake words</Card>
       </div>
-    </main>
-  );
+      <div className={classes.card}>
+      <Card title="Share" hoverable="true" >A wonderful way to improve your gibberish is to find fake words</Card> 
+       </div>
+
+    </div>
+  </div>
+  )
 };
 export default Welcome;

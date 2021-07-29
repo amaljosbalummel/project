@@ -14,9 +14,27 @@
     margin-left: 40%;
 
 }
+.button h3{
+    color:white;
+}
 .button Button{
     margin-left:8%;
 }
 .site-back-top-basic {
     color: rgba(64, 64, 64, 0.6);
+  }
+ 
+  @media (max-width:650px){
+      .div{
+          margin-top: 5%;
+          color:blueviolet 
+      }
+      .button{
+          width:100%;
+          margin-left: 0%;
+          text-align:center;
+      }
+      .button Button{
+          margin-right: 5%;
+      }
   }
